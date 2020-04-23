@@ -20,10 +20,15 @@ namespace RVTR.Account.ObjectModel.Models
     public string AccountID { get => AccountID ; set{
       AccountID = Hash.hash(value);
     } } 
+<<<<<<< HEAD
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) => throw new System.NotImplementedException();
 
     public Profile[] Profile { get; set; } // Multiple profiles can be associated with one account, such as wife and kids all on one bill
+=======
+    public Profile[] Profiles { get; set; } // Multiple profiles can be associated with one account, such as wife and kids all on one bill
+>>>>>>> brancinching
     public AccountDetails AccountDetails { get; set; }
+
 
   }
 }

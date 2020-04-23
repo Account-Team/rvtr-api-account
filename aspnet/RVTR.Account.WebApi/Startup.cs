@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RVTR.Account.DataContext.Repositories;
+using RVTR.Account.DataContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace RVTR.Account.WebApi
 {
@@ -25,7 +27,7 @@ namespace RVTR.Account.WebApi
 
     public void ConfigureServices(IServiceCollection services)
     {
-      // services.AddDbContext<AccountDBContext>(options => options.UseInMemoryDatabase(databaseName: "Accounts"));
+      services.AddDbContext<AccountDbContext>(options => options.UseInMemoryDatabase(databaseName: "AccountsDB"));
 
       services.AddControllers();
 

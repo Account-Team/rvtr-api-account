@@ -1,13 +1,14 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using RVTR.Account.ObjectModel.Util;
+using RVTR.Account.ObjectModel.Abstracts;
 
 namespace RVTR.Account.ObjectModel.Models
 {
   /// <summary>
   /// Contains information on how users plan to pay for services and related informtion.
   /// </summary>
-  public class Payment 
+  public class Payment : Model
   {
     [Key]
     public string PaymentID { get => PaymentID ; set{
@@ -41,7 +42,9 @@ namespace RVTR.Account.ObjectModel.Models
     #region NAVIGATIONAL PROPERTIES
     
     public Profile Profile { get; set; }
-
+    
     #endregion
+    
   }
 }
+

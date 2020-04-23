@@ -6,13 +6,13 @@ namespace RVTR.Account.DataContext
   public class AccountDbContext: DbContext
   {
     public AccountDbContext(DbContextOptions options) : base(options) {}
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-      if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFProviders.InMemory;Trusted_Connection=True;ConnectRetryCount=0");
-        }
-    }
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // {
+    //   if (!optionsBuilder.IsConfigured)
+    //     {
+    //         optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFProviders.InMemory;Trusted_Connection=True;ConnectRetryCount=0");
+    //     }
+    // }
     public DbSet<AccountDetails> AccountDetails { get; set; }
     public DbSet<AccountModel> Accounts { get; set; }
     public DbSet<AccountRewards> AccountRewards { get; set; }

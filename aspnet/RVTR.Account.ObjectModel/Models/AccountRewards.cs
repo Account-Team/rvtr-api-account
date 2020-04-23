@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using RVTR.Account.ObjectModel.Util;
+using RVTR.Account.ObjectModel.Abstracts;
 
 namespace RVTR.Account.ObjectModel.Models
 {
   /// <summary>
   /// Contains Reward information for related Account.
   /// </summary>
-  public class AccountRewards 
+  public class AccountRewards : Model
   {
     [Key]
     public string AccountRewardsID { get => AccountRewardsID ; set{
@@ -19,5 +20,7 @@ namespace RVTR.Account.ObjectModel.Models
     public AccountDetails AccountDetails { get; set; }
 
     #endregion
+    
   }
 }
+

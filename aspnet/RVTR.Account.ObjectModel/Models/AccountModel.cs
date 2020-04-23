@@ -1,12 +1,16 @@
 using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using RVTR.Account.ObjectModel.Util;
+<<<<<<< HEAD
 // using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
 
 
 
+=======
+using RVTR.Account.ObjectModel.Abstracts;
+>>>>>>> Working on testin and validation
 
 namespace RVTR.Account.ObjectModel.Models 
 {
@@ -14,7 +18,7 @@ namespace RVTR.Account.ObjectModel.Models
   /// References Profile and Account details to display all data related to one Account.
   /// </summary>
   
-  public class AccountModel 
+  public class AccountModel : Model
   {
     [Key]
     public string AccountID { get => AccountID ; set{
@@ -29,6 +33,6 @@ namespace RVTR.Account.ObjectModel.Models
 >>>>>>> brancinching
     public AccountDetails AccountDetails { get; set; }
 
-
   }
 }
+

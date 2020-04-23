@@ -18,5 +18,6 @@ namespace RVTR.Account.ObjectModel.Models
     [Display(Name = "Relationship")]
     [Required(ErrorMessage = "Relationship is required.")]
     public string Relationship { get; set; }
+
   }
 }

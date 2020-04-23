@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using RVTR.Account.ObjectModel.Util;
+using RVTR.Account.ObjectModel.Abstracts;
 
 namespace RVTR.Account.ObjectModel.Models 
 {
   /// <summary>
   /// References All Objects with data provided by user.
   /// </summary>
-  public class Profile 
+  public class Profile : Model
   {
     [Key]
     public string ProfileID { get => ProfileID ; set{
@@ -27,5 +28,6 @@ namespace RVTR.Account.ObjectModel.Models
     public AccountModel AccountModel { get; set; }
 
     #endregion
+  
   }
 }

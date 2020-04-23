@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using RVTR.Account.ObjectModel.Util;
+using RVTR.Account.ObjectModel.Abstracts;
 
 namespace RVTR.Account.ObjectModel.Models{
   /// <summary>
   /// Basic Location details such as Street Address, City, State, etc.
   /// </summary>
-  public class Address
+  public class Address : Model
   {
     [Key]
     public string AddressID { get => AddressID ; set{
@@ -35,10 +36,10 @@ namespace RVTR.Account.ObjectModel.Models{
     public Profile Profile { get; set; }
 
     #endregion
-    
 
   }
   
 }
+
 
 

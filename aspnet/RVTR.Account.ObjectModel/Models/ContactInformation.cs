@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using RVTR.Account.ObjectModel.Util;
+using RVTR.Account.ObjectModel.Abstracts;
 
 namespace RVTR.Account.ObjectModel.Models
 {
   /// <summary>
   /// Data for Communication with user including Email, and Phone Number.
   /// </summary>
-  public class ContactInformation 
+  public class ContactInformation : Model
   {
     [Key]
     public string ContactInformationID { get => ContactInformationID ; set{
@@ -30,5 +31,7 @@ namespace RVTR.Account.ObjectModel.Models
     public EmergencyInformation EmergencyInformation { get; set; }
 
     #endregion
+
   }
 }
+

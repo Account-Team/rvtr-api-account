@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using RVTR.Account.DataContext;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
 namespace RVTR.Account.WebApi
 {
@@ -22,5 +25,16 @@ namespace RVTR.Account.WebApi
             {
               webBuilder.UseStartup<Startup>();
             });
+    public static IHost LoadDatabase(IHost host)
+    {
+      using( var dbContext = host.Services.GetRequiredService<AccountDbContext>())
+      {
+          dbContext.Database.EnsureCreated();
+          // dbContext.Database.Migrate();
+      }
+      return host;
+    }
+        
   }
+  
 }

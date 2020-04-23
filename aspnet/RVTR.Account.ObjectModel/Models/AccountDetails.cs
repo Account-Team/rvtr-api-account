@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using RVTR.Account.ObjectModel.Util;
+using RVTR.Account.ObjectModel.Abstracts;
 
 namespace RVTR.Account.ObjectModel.Models
 {
   /// <summary>
   /// Account Details [Considering Merge with AccountModel.cs...]
   /// </summary>
-  public class AccountDetails 
+  public class AccountDetails : Model
   {
     [Key]
     public string AccountDetailsID { get => AccountDetailsID ; set{
@@ -21,6 +22,7 @@ namespace RVTR.Account.ObjectModel.Models
     public AccountModel AccountModel { get; set; }
 
     #endregion
-
+    
   }
 }
+

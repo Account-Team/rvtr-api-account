@@ -1,13 +1,15 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using RVTR.Account.ObjectModel.Util;
+using RVTR.Account.ObjectModel.Validation;
+using RVTR.Account.ObjectModel.Abstracts;
 
 namespace RVTR.Account.ObjectModel.Models
 {
   /// <summary>
   /// Contains information on how to interact with user such as Preferred name and Language.
   /// </summary>
-  public class Name 
+  public class Name : Model
   {
     [Key]
     public string NameID { get => NameID ; set{
@@ -44,5 +46,10 @@ namespace RVTR.Account.ObjectModel.Models
     public Profile Profile { get; set; }
 
     #endregion
+    public new bool IsValid()
+    {
+      return new ValidateDateOfBirth().IsValid(DateOfBirth);
+    }
   }
 }
+

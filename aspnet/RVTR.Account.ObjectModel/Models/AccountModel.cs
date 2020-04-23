@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 using System.Security.Cryptography;
 using RVTR.Account.ObjectModel.Util;
+using RVTR.Account.ObjectModel.Abstracts;
 
 namespace RVTR.Account.ObjectModel.Models 
 {
@@ -9,7 +10,7 @@ namespace RVTR.Account.ObjectModel.Models
   /// References Profile and Account details to display all data related to one Account.
   /// </summary>
   
-  public class AccountModel 
+  public class AccountModel : Model
   {
     [Key]
     public string AccountID { get => AccountID ; set{
@@ -18,6 +19,6 @@ namespace RVTR.Account.ObjectModel.Models
     public Profile[] Profiles { get; set; } // Multiple profiles can be associated with one account, such as wife and kids all on one bill
     public AccountDetails AccountDetails { get; set; }
 
-
   }
 }
+

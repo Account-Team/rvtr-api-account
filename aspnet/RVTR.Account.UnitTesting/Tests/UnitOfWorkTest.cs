@@ -12,6 +12,30 @@ namespace RVTR.Account.UnitTesting.Tests
   {
     private readonly AccountDbContext _db;
 
+    // Seed Data for each Model type. TODO: fill in the required fields for each of these seed models
+    AccountModel account_model = new AccountModel();
+    
+
+    private AccountModel BuildAccountModel() // Creates a new AccountModel with dummy data for testing
+    {
+      // dummy objects initialization
+      AccountDetails account_details = new AccountDetails();
+      AccountRewards account_rewards = new AccountRewards();
+      Address address = new Address();
+      Name name = new Name();
+      Profile profile = new Profile();
+      Payment payment = new Payment();
+      ContactInformation contact_information = new ContactInformation();
+      EmergencyInformation emergency_information = new EmergencyInformation();
+      // Set the dummy objects' values
+      //TODO: code here
+
+      // Structure the dummy objects wrt the ER graph
+      // TODO: code here
+
+      return account_model;
+    }
+
     [Fact]
     public void Test_CommitMethod()
     {
@@ -22,30 +46,32 @@ namespace RVTR.Account.UnitTesting.Tests
       Assert.IsType<Action>(actual);
     }
 
-    // [Fact]
-    // public void Test_Accounts()
-    // {
-    //   var sut = new UnitOfWork(_db);
+    [Fact]
+    public void Test_Accounts()
+    {
+      var options = new DbContextOptionsBuilder<AccountDbContext>() 
+          .UseInMemoryDatabase(databaseName: "AccountDB_Test")
+          .Options;
+      var context = new AccountDbContext(options);
+      var unWork = new UnitOfWork(context);
+      var AccountModelRepo = unWork.AccountModelRepository;
+      Assert.True(AccountModelRepo.Insert(new AccountModel()));
+    }
 
-    //   Assert.True(sut.AccountModelRepository.Insert(new AccountModel()));
-    // }
+    [Fact]
+    public void Add_Account_To_Database()
+    {
+      var dummy_account = BuildAccountModel();
+      var options = new DbContextOptionsBuilder<AccountDbContext>() 
+          .UseInMemoryDatabase(databaseName: "AccountDB_Test")
+          .Options;
 
-    // [Fact]
-    // public void Add_Account_To_Database()
-    // {
-    //   var TestEntityName = new Name(){CommonName = "Spiderman", FamilyName = "Arachnids", 
-    //     FullName = "Spiderman the Third", DateOfBirth = DateTime.Now , Title = "Dr.", Suffix = "Jr.", 
-    //     Culture = "Culture", Gender = "Gender", Language = "Language"};
-    //   var options = new DbContextOptionsBuilder<AccountDbContext>() 
-    //       .UseInMemoryDatabase(databaseName: "Add_name_to_database")
-    //       .Options;
-
-    //   // Run the test against one instance of the context
-    //   var context = new AccountDbContext(options);
-    //   var unWork = new UnitOfWork(context);
-    //   var NameRepo = unWork.NameRepository;
-    //   NameRepo.Insert(TestEntityName);
-    //   unWork.Commit();
+      // Run the test against one instance of the context
+      var context = new AccountDbContext(options);
+      var unWork = new UnitOfWork(context);
+      var AccountModelRepo = unWork.AccountModelRepository;
+      AccountModelRepo.Insert(dummy_account);
+      unWork.Commit();
 
     //   // Use a separate instance of the context to verify correct data was saved to database
     //   using(var context2 = new AccountDbContext(options))
@@ -53,6 +79,6 @@ namespace RVTR.Account.UnitTesting.Tests
     //     Assert.Equal(1, context2.Name.Count());
     //     Assert.Equal(TestEntityName, context.Name.Single());
     //   }
-    // }
+    }
   }
 }

@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using RVTR.Account.ObjectModel.Util;
 using RVTR.Account.ObjectModel.Abstracts;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RVTR.Account.ObjectModel.Models{
   /// <summary>
@@ -33,6 +34,7 @@ namespace RVTR.Account.ObjectModel.Models{
 
     #region NAVIGATIONAL PROPERTIES
     
+    [ForeignKey("ProfileID")]
     public Profile Profile { get; set; }
 
     #endregion

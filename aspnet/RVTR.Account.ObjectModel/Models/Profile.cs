@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using RVTR.Account.ObjectModel.Util;
 using RVTR.Account.ObjectModel.Abstracts;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RVTR.Account.ObjectModel.Models 
 {
@@ -25,6 +26,7 @@ namespace RVTR.Account.ObjectModel.Models
 
     #region NAVIGATIONAL PROPERTIES
     
+    [ForeignKey("AccountID")]
     public AccountModel AccountModel { get; set; }
 
     #endregion

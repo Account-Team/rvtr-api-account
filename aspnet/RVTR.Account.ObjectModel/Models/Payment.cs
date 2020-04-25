@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using RVTR.Account.ObjectModel.Util;
 using RVTR.Account.ObjectModel.Abstracts;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RVTR.Account.ObjectModel.Models
 {
@@ -40,7 +41,7 @@ namespace RVTR.Account.ObjectModel.Models
     public Address BillingAddress { get; set; }
 
     #region NAVIGATIONAL PROPERTIES
-    
+    [ForeignKey("ProfileID")]
     public Profile Profile { get; set; }
     
     #endregion

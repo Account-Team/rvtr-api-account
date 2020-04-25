@@ -32,7 +32,6 @@ namespace RVTR.Account.DataContext.Repositories
       NameRepository = new Repository<Name>(_db);
       PaymentRepository = new Repository<Payment>(_db);
       ProfileRepository = new Repository<Profile>(_db);
-      
     }
 
     public void Commit()

@@ -30,29 +30,29 @@ namespace RVTR.Account.UnitTesting.Tests
     //   Assert.True(sut.AccountModelRepository.Insert(new AccountModel()));
     // }
 
-    [Fact]
-    public void Add_Account_To_Database()
-    {
-      var TestEntityName = new Name(){CommonName = "Spiderman", FamilyName = "Arachnids", 
-        FullName = "Spiderman the Third", DateOfBirth = DateTime.Now , Title = "Dr.", Suffix = "Jr.", 
-        Culture = "Culture", Gender = "Gender", Language = "Language"};
-      var options = new DbContextOptionsBuilder<AccountDbContext>() 
-          .UseInMemoryDatabase(databaseName: "Add_name_to_database")
-          .Options;
+    // [Fact]
+    // public void Add_Account_To_Database()
+    // {
+    //   var TestEntityName = new Name(){CommonName = "Spiderman", FamilyName = "Arachnids", 
+    //     FullName = "Spiderman the Third", DateOfBirth = DateTime.Now , Title = "Dr.", Suffix = "Jr.", 
+    //     Culture = "Culture", Gender = "Gender", Language = "Language"};
+    //   var options = new DbContextOptionsBuilder<AccountDbContext>() 
+    //       .UseInMemoryDatabase(databaseName: "Add_name_to_database")
+    //       .Options;
 
-      // Run the test against one instance of the context
-      var context = new AccountDbContext(options);
-      var unWork = new UnitOfWork(context);
-      var NameRepo = unWork.NameRepository;
-      NameRepo.Insert(TestEntityName);
-      unWork.Commit();
+    //   // Run the test against one instance of the context
+    //   var context = new AccountDbContext(options);
+    //   var unWork = new UnitOfWork(context);
+    //   var NameRepo = unWork.NameRepository;
+    //   NameRepo.Insert(TestEntityName);
+    //   unWork.Commit();
 
-      // Use a separate instance of the context to verify correct data was saved to database
-      using(var context2 = new AccountDbContext(options))
-      {
-        Assert.Equal(1, context2.Name.Count());
-        Assert.Equal(TestEntityName, context.Name.Single());
-      }
-    }
+    //   // Use a separate instance of the context to verify correct data was saved to database
+    //   using(var context2 = new AccountDbContext(options))
+    //   {
+    //     Assert.Equal(1, context2.Name.Count());
+    //     Assert.Equal(TestEntityName, context.Name.Single());
+    //   }
+    // }
   }
 }

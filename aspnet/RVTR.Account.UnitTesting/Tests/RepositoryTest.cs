@@ -9,16 +9,8 @@ namespace RVTR.Account.UnitTesting.Tests
   public class Repository_Test
   {
     private readonly AccountDbContext _db;
-    private readonly Repository<object> _sut;
+    private readonly Repository<object> _sut = new Repository<object>();
 
-    // public Repository_Test()
-    // {
-    //    _sut = new Repository<object>(_db);
-    // }
-    // public Repository_Test(AccountDbContext db)
-    // {
-    //    _sut = new Repository<object>(db);
-    // }
     public static readonly IEnumerable<object[]> _objects = new List<object[]>
     {
       new object[] { new object() },

@@ -12,6 +12,10 @@ namespace RVTR.Account.ObjectModel.Models
   
   public class AccountModel : Model
   {
+    // [ForeignKey]
+    // public string AccountDetailsID { get => AccountDetailsID ; set{
+    //   AccountDetailsID = Hash.hash(value);
+    // } } 
     [Key]
     public string AccountID { get => AccountID ; set{
       AccountID = Hash.hash(value);

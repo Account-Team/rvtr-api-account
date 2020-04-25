@@ -14,14 +14,14 @@ namespace RVTR.Account.DataContext
     //     }
     // }
     public DbSet<AccountDetails> AccountDetails { get; set; }
-    public DbSet<AccountModel> Accounts { get; set; }
+    public DbSet<AccountModel> Account { get; set; }
     public DbSet<AccountRewards> AccountRewards { get; set; }
-    public DbSet<Address> Addresses { get; set; }
+    public DbSet<Address> Address { get; set; }
     public DbSet<ContactInformation> ContactInformation { get; set; }
     public DbSet<EmergencyInformation> EmergencyContactInformation { get; set; }
-    public DbSet<Name> Names { get; set; }
-    public DbSet<Payment> Payments { get; set; }
-    public DbSet<Profile> Profiles { get; set; }
+    public DbSet<Name> Name { get; set; }
+    public DbSet<Payment> Payment { get; set; }
+    public DbSet<Profile> Profile { get; set; }
     
     protected override void OnModelCreating(ModelBuilder builder) 
     {
@@ -35,16 +35,18 @@ namespace RVTR.Account.DataContext
       builder.Entity<Name>().HasKey(x => x.NameID);
       builder.Entity<Payment>().HasKey(x => x.PaymentID);
       builder.Entity<Profile>().HasKey(x => x.ProfileID);
+      // builder.Entity<UserModel>().HasOne(x => x.Feed).WithOne(x => x.User).HasForeignKey<FeedModel>(x => x.uid);  // example
+            
 
       // Define entity relationships
       builder.Entity<AccountModel>().HasMany(x => x.Profiles).WithOne(x => x.AccountModel);
-      builder.Entity<AccountModel>().HasOne(x => x.AccountDetails).WithOne(x => x.AccountModel);
-      builder.Entity<AccountDetails>().HasOne(x => x.AccountRewards).WithOne(x => x.AccountDetails);
-      builder.Entity<Profile>().HasOne(x => x.Name).WithOne(x => x.Profile);
-      builder.Entity<Profile>().HasOne(x => x.Address).WithOne(x => x.Profile);
-      builder.Entity<Profile>().HasOne(x => x.Payment).WithOne(x => x.Profile);
-      builder.Entity<Profile>().HasOne(x => x.ContactInformation).WithOne(x => x.Profile);
-      builder.Entity<Profile>().HasOne(x => x.EmergencyInformation).WithOne(x => x.Profile);
+      builder.Entity<AccountModel>().HasOne(x => x.AccountDetails).WithOne(x => x.AccountModel); //HasForeignKey<AccountModel>(x => x.AccountID);
+      builder.Entity<AccountDetails>().HasOne(x => x.AccountRewards).WithOne(x => x.AccountDetails); //HasForeignKey<AccountDetails>(x =>x.AccountDetailsID); 
+      builder.Entity<Profile>().HasOne(x => x.Name).WithOne(x => x.Profile); //HasForeignKey<Profile>(x => x.ProfileID);
+      builder.Entity<Profile>().HasOne(x => x.Address).WithOne(x => x.Profile); //HasForeignKey<Profile>(x => x.ProfileID);
+      builder.Entity<Profile>().HasOne(x => x.Payment).WithOne(x => x.Profile); //HasForeignKey<Profile>(x => x.ProfileID);
+      builder.Entity<Profile>().HasOne(x => x.ContactInformation).WithOne(x => x.Profile); //HasForeignKey<Profile>(x => x.ProfileID);
+      builder.Entity<Profile>().HasOne(x => x.EmergencyInformation).WithOne(x => x.Profile); //HasForeignKey<Profile>(x => x.ProfileID);
     }
     
     // Input dummy data

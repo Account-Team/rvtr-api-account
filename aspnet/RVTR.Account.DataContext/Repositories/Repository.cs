@@ -2,16 +2,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using RVTR.Account.ObjectModel.Abstracts;
-// using System.Web.ModelBinding;
 
 namespace RVTR.Account.DataContext.Repositories
 {
-  public class Repository<TEntity> : IRepository<TEntity> where TEntity : class //, ApiController
+  public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
   {
     private readonly DbContext _db;
 
-    //  IEnumerable<TEntity> IRepository<TEntity>.Select => throw new System.NotImplementedException(); // wtf let's get rid of this
-
+    public Repository() { }
     public Repository(DbContext db)
     {
       _db = db;

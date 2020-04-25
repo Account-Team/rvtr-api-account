@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using RVTR.Account.ObjectModel.Util;
 using RVTR.Account.ObjectModel.Abstracts;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RVTR.Account.ObjectModel.Models
 {
@@ -17,8 +18,11 @@ namespace RVTR.Account.ObjectModel.Models
     [Required(ErrorMessage = "Account type is required.")]
     public string AccountType { get; set; }
     public AccountRewards AccountRewards { get; set; }
+    
+    //public string AccountRewardsID { get; set; };
 
     #region NAVIGATIONAL PROPERTIES
+    [ForeignKey("AccountID")]
     public AccountModel AccountModel { get; set; }
 
     #endregion

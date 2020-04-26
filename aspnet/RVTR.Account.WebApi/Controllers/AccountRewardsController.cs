@@ -15,17 +15,17 @@ namespace RVTR.Account.WebApi.Controllers
   [ApiController]
   [EnableCors()]
   [Route("[controller]")]
-  public class AccountController : ControllerBase
+  public class AccountRewardsController : ControllerBase
   {
     private readonly HttpClient _http = new HttpClient();
 
     AccountDbContext dbContext;
     private static readonly UnitOfWork system; // DBMS hooks
     
-    private readonly ILogger<AccountController> _logger;
+    private readonly ILogger<AccountRewardsController> _logger;
     private readonly IUnitOfWork _unitOfWork;
 
-    public AccountController(ILogger<AccountController> logger, IUnitOfWork unitOfWork)
+    public AccountRewardsController(ILogger<AccountRewardsController> logger, IUnitOfWork unitOfWork)
     {
       _logger = logger;
       _unitOfWork = unitOfWork;
@@ -37,8 +37,9 @@ namespace RVTR.Account.WebApi.Controllers
       return await Task.FromResult<AccountModel>(new AccountModel());
     }
     [HttpPost]
-    public async Task<AccountModel> Post(AccountModel account) 
+    public async Task<AccountModel> Post(AccountModel account) // TODO: Change to async task.await
     {
+      // return await Task.FromResult<AccountModel>(new AccountModel());
       return await Task.FromResult<AccountModel>(account);
     }
   }

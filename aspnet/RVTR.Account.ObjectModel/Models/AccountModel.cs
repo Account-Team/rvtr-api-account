@@ -13,10 +13,10 @@ namespace RVTR.Account.ObjectModel.Models
   public class AccountModel : Model
   {
     [Key]
-    // public string AccountID { get => AccountID ; set{
-    //   AccountID = Hash.hash(value);
-    // } } 
-    public string AccountModelID { get; set; }
+    public string AccountModelID { get => AccountModelID ; set{
+      AccountModelID = Hash.hash(value);
+    } } 
+    // public string AccountModelID { get; set; }
     public Profile[] Profiles { get; set; } // Multiple profiles can be associated with one account, such as wife and kids all on one bill
     public AccountDetails AccountDetails { get; set; }
 

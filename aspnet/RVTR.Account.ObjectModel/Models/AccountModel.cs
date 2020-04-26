@@ -20,6 +20,7 @@ namespace RVTR.Account.ObjectModel.Models
   
   public class AccountModel : Model
   {
+<<<<<<< HEAD
     // [ForeignKey]
     // public string AccountDetailsID { get => AccountDetailsID ; set{
     //   AccountDetailsID = Hash.hash(value);
@@ -33,6 +34,13 @@ namespace RVTR.Account.ObjectModel.Models
 
     public Profile[] Profile { get; set; } // Multiple profiles can be associated with one account, such as wife and kids all on one bill
 =======
+=======
+    [Key]
+    public string AccountModelID { get => AccountModelID ; set{
+      AccountModelID = Hash.hash(value);
+    } } 
+    // public string AccountModelID { get; set; }
+>>>>>>> Added the controllers
     public Profile[] Profiles { get; set; } // Multiple profiles can be associated with one account, such as wife and kids all on one bill
 >>>>>>> brancinching
     public AccountDetails AccountDetails { get; set; }

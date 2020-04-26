@@ -15,31 +15,31 @@ namespace RVTR.Account.WebApi.Controllers
   [ApiController]
   [EnableCors()]
   [Route("[controller]")]
-  public class AccountController : ControllerBase
+  public class ProfileController : ControllerBase
   {
     private readonly HttpClient _http = new HttpClient();
 
     AccountDbContext dbContext;
     private static readonly UnitOfWork system; // DBMS hooks
     
-    private readonly ILogger<AccountController> _logger;
+    private readonly ILogger<ProfileController> _logger;
     private readonly IUnitOfWork _unitOfWork;
 
-    public AccountController(ILogger<AccountController> logger, IUnitOfWork unitOfWork)
+    public ProfileController(ILogger<ProfileController> logger, IUnitOfWork unitOfWork)
     {
       _logger = logger;
       _unitOfWork = unitOfWork;
     }
 
     [HttpGet]
-    public async Task<AccountModel> Get()
+    public async Task<Profile> Get()
     {
-      return await Task.FromResult<AccountModel>(new AccountModel());
+      return await Task.FromResult<Profile>(new Profile());
     }
     [HttpPost]
-    public async Task<AccountModel> Post(AccountModel account) 
+    public async Task<Profile> Post(Profile profile) 
     {
-      return await Task.FromResult<AccountModel>(account);
+      return await Task.FromResult<Profile>(profile);
     }
   }
 }

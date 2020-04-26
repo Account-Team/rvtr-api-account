@@ -26,7 +26,7 @@ namespace RVTR.Account.ObjectModel.Models
 
     #region NAVIGATIONAL PROPERTIES
     
-    [ForeignKey("AccountID")]
+    // [ForeignKey("AccountID")]
     public AccountModel AccountModel { get; set; }
 
     #endregion

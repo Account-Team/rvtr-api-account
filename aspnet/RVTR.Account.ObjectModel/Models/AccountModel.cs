@@ -12,17 +12,19 @@ namespace RVTR.Account.ObjectModel.Models
   
   public class AccountModel : Model
   {
-    // [ForeignKey]
-    // public string AccountDetailsID { get => AccountDetailsID ; set{
-    //   AccountDetailsID = Hash.hash(value);
-    // } } 
     [Key]
-    public string AccountID { get => AccountID ; set{
-      AccountID = Hash.hash(value);
-    } } 
+    // public string AccountID { get => AccountID ; set{
+    //   AccountID = Hash.hash(value);
+    // } } 
+    public string AccountModelID { get; set; }
     public Profile[] Profiles { get; set; } // Multiple profiles can be associated with one account, such as wife and kids all on one bill
     public AccountDetails AccountDetails { get; set; }
 
+    public AccountModel()
+    {
+      uid_state ++;
+      AccountModelID = uid_state.ToString();
+    }
   }
 }
 

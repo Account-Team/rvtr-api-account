@@ -18,12 +18,12 @@ namespace RVTR.Account.ObjectModel.Models
     [Required(ErrorMessage = "Account type is required.")]
     public string AccountType { get; set; }
     public AccountRewards AccountRewards { get; set; }
-    
-    //public string AccountRewardsID { get; set; };
 
     #region NAVIGATIONAL PROPERTIES
     [ForeignKey("AccountID")]
-    public AccountModel AccountModel { get; set; }
+    public virtual AccountModel AccountModel { get; set; }
+    
+    // public string AccountID { get; set; }
 
     #endregion
     

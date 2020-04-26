@@ -15,6 +15,7 @@ namespace RVTR.Account.ObjectModel.Abstracts
     {
       return true;
     }
+    protected int uid_state { get; set; }
   }
 }
 

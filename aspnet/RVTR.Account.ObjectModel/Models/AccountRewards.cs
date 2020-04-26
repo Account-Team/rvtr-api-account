@@ -20,7 +20,7 @@ namespace RVTR.Account.ObjectModel.Models
 
     #region NAVIGATIONAL PROPERTIES
     [ForeignKey("AccountDetailsID")]
-    public AccountDetails AccountDetails { get; set; }
+    public virtual AccountDetails AccountDetails { get; set; }
 
     #endregion
     

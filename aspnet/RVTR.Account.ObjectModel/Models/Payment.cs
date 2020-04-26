@@ -42,7 +42,7 @@ namespace RVTR.Account.ObjectModel.Models
 
     #region NAVIGATIONAL PROPERTIES
     [ForeignKey("ProfileID")]
-    public Profile Profile { get; set; }
+    public virtual Profile Profile { get; set; }
     
     #endregion
     

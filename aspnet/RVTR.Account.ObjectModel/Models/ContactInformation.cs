@@ -10,7 +10,6 @@ namespace RVTR.Account.ObjectModel.Models
   /// </summary>
   public class ContactInformation : Model
   {
-    [Key]
     public string ContactInformationID { get; set; }
     // { get => ContactInformationID ; set{
     //   ContactInformationID = Hash.hash(value);
@@ -28,8 +27,12 @@ namespace RVTR.Account.ObjectModel.Models
 
 
     #region NAVIGATIONAL PROPERTIES
+<<<<<<< HEAD
     
     [ForeignKey("ProfileID")]
+=======
+    public string ProfileID { get; set; }
+>>>>>>> Account Models having issues, but rest of Get requests and some Post Requests work
     public Profile Profile { get; set; }
 
     #endregion

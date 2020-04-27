@@ -32,15 +32,15 @@ namespace RVTR.Account.WebApi.Controllers
     }
 
     [HttpGet]
-    public async Task<AccountModel> Get()
+    public async Task<AccountRewards> Get()
     {
-      return await Task.FromResult<AccountModel>(new AccountModel());
+      return await Task.FromResult<AccountRewards>(new AccountRewards());
     }
     [HttpPost]
-    public async Task<AccountModel> Post(AccountModel account) // TODO: Change to async task.await
+    public async Task<AccountRewards> Post(AccountRewards account) // TODO: Change to async task.await
     {
       // return await Task.FromResult<AccountModel>(new AccountModel());
-      return await Task.FromResult<AccountModel>(account);
+      return await Task.FromResult<AccountRewards>(account);
     }
   }
 }

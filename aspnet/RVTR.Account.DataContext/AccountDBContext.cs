@@ -39,14 +39,14 @@ namespace RVTR.Account.DataContext
             
 
       // Define entity relationships
+      builder.Entity<AccountDetails>().HasOne(x => x.AccountModel).WithOne(x => x.AccountDetails).HasForeignKey<AccountModel>(x => x.AccountID);
+      builder.Entity<AccountRewards>().HasOne(x => x.AccountDetails).WithOne(x => x.AccountRewards).HasForeignKey<AccountDetails>(x =>x.AccountDetailsID); 
       builder.Entity<AccountModel>().HasMany(x => x.Profiles).WithOne(x => x.AccountModel);
-      builder.Entity<AccountModel>().HasOne(x => x.AccountDetails).WithOne(x => x.AccountModel); //HasForeignKey<AccountModel>(x => x.AccountID);
-      builder.Entity<AccountDetails>().HasOne(x => x.AccountRewards).WithOne(x => x.AccountDetails); //HasForeignKey<AccountDetails>(x =>x.AccountDetailsID); 
-      builder.Entity<Profile>().HasOne(x => x.Name).WithOne(x => x.Profile); //HasForeignKey<Profile>(x => x.ProfileID);
-      builder.Entity<Profile>().HasOne(x => x.Address).WithOne(x => x.Profile); //HasForeignKey<Profile>(x => x.ProfileID);
-      builder.Entity<Profile>().HasOne(x => x.Payment).WithOne(x => x.Profile); //HasForeignKey<Profile>(x => x.ProfileID);
-      builder.Entity<Profile>().HasOne(x => x.ContactInformation).WithOne(x => x.Profile); //HasForeignKey<Profile>(x => x.ProfileID);
-      builder.Entity<Profile>().HasOne(x => x.EmergencyInformation).WithOne(x => x.Profile); //HasForeignKey<Profile>(x => x.ProfileID);
+      builder.Entity<Name>().HasOne(x => x.Profile).WithOne(x => x.Name);
+      builder.Entity<Address>().HasOne(x => x.Profile).WithOne(x => x.Address);
+      builder.Entity<Payment>().HasOne(x => x.Profile).WithOne(x => x.Payment);
+      builder.Entity<ContactInformation>().HasOne(x => x.Profile).WithOne(x => x.ContactInformation);
+      builder.Entity<EmergencyInformation>().HasOne(x => x.Profile).WithOne(x => x.EmergencyInformation);
     }
     
     // Input dummy data

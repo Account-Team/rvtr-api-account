@@ -21,6 +21,7 @@ namespace RVTR.Account.ObjectModel.Models
   public class AccountModel : Model
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     // [ForeignKey]
     // public string AccountDetailsID { get => AccountDetailsID ; set{
     //   AccountDetailsID = Hash.hash(value);
@@ -36,6 +37,8 @@ namespace RVTR.Account.ObjectModel.Models
 =======
 =======
     [Key]
+=======
+>>>>>>> Account Models having issues, but rest of Get requests and some Post Requests work
     public string AccountModelID { get; set; }
     // { get => AccountModelID ; set{
     //   AccountModelID = Hash.hash(value);

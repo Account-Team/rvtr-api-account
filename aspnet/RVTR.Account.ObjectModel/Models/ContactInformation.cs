@@ -11,9 +11,10 @@ namespace RVTR.Account.ObjectModel.Models
   public class ContactInformation : Model
   {
     [Key]
-    public string ContactInformationID { get => ContactInformationID ; set{
-      ContactInformationID = Hash.hash(value);
-    } } 
+    public string ContactInformationID { get; set; }
+    // { get => ContactInformationID ; set{
+    //   ContactInformationID = Hash.hash(value);
+    // } } 
     [Display(Name = "Email address")]
     [DataType(DataType.EmailAddress)]
     [Required(ErrorMessage = "Email address is required.")]

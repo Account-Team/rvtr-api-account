@@ -10,9 +10,10 @@ namespace RVTR.Account.ObjectModel.Models{
   public class Address : Model
   {
     [Key]
-    public string AddressID { get => AddressID ; set{
-      AddressID = Hash.hash(value);
-    } } 
+    public string AddressID { get; set; }
+    // { get => AddressID ; set{
+    //   AddressID = Hash.hash(value);
+    // } } 
     [Display(Name = "Street address")]
     [Required(ErrorMessage = "Street address is required.")]
     public string StreetAddress1 { get; set; }

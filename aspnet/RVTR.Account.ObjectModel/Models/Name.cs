@@ -13,9 +13,10 @@ namespace RVTR.Account.ObjectModel.Models
   public class Name : Model
   {
     [Key]
-    public string NameID { get => NameID ; set{
-      NameID = Hash.hash(value);
-    } } 
+    public string NameID { get; set; }
+    // { get => NameID ; set{
+    //   NameID = Hash.hash(value);
+    // } } 
     [Display(Name = "Common name")]
     [Required(ErrorMessage = "Common name is required.")]
     public string CommonName { get; set; }

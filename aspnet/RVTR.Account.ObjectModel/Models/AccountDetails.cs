@@ -11,9 +11,10 @@ namespace RVTR.Account.ObjectModel.Models
   public class AccountDetails : Model
   {
     [Key]
-    public string AccountDetailsID { get => AccountDetailsID ; set{
-      AccountDetailsID = Hash.hash(value);
-    } } 
+    public string AccountDetailsID { get; set; }
+    // { get => AccountDetailsID ; set{
+    //   AccountDetailsID = Hash.hash(value);
+    // } } 
     [Display(Name = "Account type")]
     [Required(ErrorMessage = "Account type is required.")]
     public string AccountType { get; set; }

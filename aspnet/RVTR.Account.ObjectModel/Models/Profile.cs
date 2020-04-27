@@ -11,9 +11,10 @@ namespace RVTR.Account.ObjectModel.Models
   public class Profile : Model
   {
     [Key]
-    public string ProfileID { get => ProfileID ; set{
-      ProfileID = Hash.hash(value);
-    } } 
+    public string ProfileID { get; set; }
+    // { get => ProfileID ; set{
+    //   ProfileID = Hash.hash(value);
+    // } } 
     
     [Required(ErrorMessage = "Account role is required.")]
     public string AccountRole { get; set; }

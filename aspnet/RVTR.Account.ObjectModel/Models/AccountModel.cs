@@ -36,9 +36,10 @@ namespace RVTR.Account.ObjectModel.Models
 =======
 =======
     [Key]
-    public string AccountModelID { get => AccountModelID ; set{
-      AccountModelID = Hash.hash(value);
-    } } 
+    public string AccountModelID { get; set; }
+    // { get => AccountModelID ; set{
+    //   AccountModelID = Hash.hash(value);
+    // } } 
     // public string AccountModelID { get; set; }
 >>>>>>> Added the controllers
     public Profile[] Profiles { get; set; } // Multiple profiles can be associated with one account, such as wife and kids all on one bill

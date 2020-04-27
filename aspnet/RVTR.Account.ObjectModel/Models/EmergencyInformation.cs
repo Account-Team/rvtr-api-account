@@ -10,9 +10,10 @@ namespace RVTR.Account.ObjectModel.Models
   public class EmergencyInformation
   {
     [Key]
-    public string EmergencyInformationID { get => EmergencyInformationID ; set{
-      EmergencyInformationID = Hash.hash(value);
-    } } 
+    public string EmergencyInformationID { get; set; }
+    // { get => EmergencyInformationID ; set{
+    //   EmergencyInformationID = Hash.hash(value);
+    // } } 
     [Display(Name = "Name")]
     [Required(ErrorMessage = "Name is required.")]
     public string EmergencyContactName { get; set; }

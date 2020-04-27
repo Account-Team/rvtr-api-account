@@ -42,8 +42,8 @@ namespace RVTR.Account.ObjectModel.Models
     public Address BillingAddress { get; set; }
 
     #region NAVIGATIONAL PROPERTIES
-    [ForeignKey("ProfileID")]
-    public virtual Profile Profile { get; set; }
+    public string ProfileID { get; set; }
+    public Profile Profile { get; set; }
     
     #endregion
     

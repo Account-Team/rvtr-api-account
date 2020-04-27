@@ -12,7 +12,6 @@ namespace RVTR.Account.ObjectModel.Models
   /// </summary>
   public class Name : Model
   {
-    [Key]
     public string NameID { get; set; }
     // { get => NameID ; set{
     //   NameID = Hash.hash(value);
@@ -44,8 +43,8 @@ namespace RVTR.Account.ObjectModel.Models
     public string Language { get; set; }
 
     #region NAVIGATIONAL PROPERTIES
-    [ForeignKey("ProfileID")]
-    public virtual Profile Profile { get; set; }
+    public string ProfileID { get; set; }
+    public Profile Profile { get; set; }
 
     #endregion
     public new bool IsValid()

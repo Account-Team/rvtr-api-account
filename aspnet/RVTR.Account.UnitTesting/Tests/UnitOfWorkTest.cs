@@ -46,39 +46,39 @@ namespace RVTR.Account.UnitTesting.Tests
       Assert.IsType<Action>(actual);
     }
 
-    [Fact]
-    public void Test_Accounts()
-    {
-      var options = new DbContextOptionsBuilder<AccountDbContext>() 
-          .UseInMemoryDatabase(databaseName: "AccountDB_Test")
-          .Options;
-      var context = new AccountDbContext(options);
-      var unWork = new UnitOfWork(context);
-      var AccountModelRepo = unWork.AccountModelRepository;
-      Assert.True(AccountModelRepo.Insert(new AccountModel()));
-    }
+    // [Fact]
+    // public void Test_Accounts()
+    // {
+    //   var options = new DbContextOptionsBuilder<AccountDbContext>() 
+    //       .UseInMemoryDatabase(databaseName: "AccountDB_Test")
+    //       .Options;
+    //   var context = new AccountDbContext(options);
+    //   var unWork = new UnitOfWork(context);
+    //   var AccountModelRepo = unWork.AccountModelRepository;
+    //   Assert.True(AccountModelRepo.Insert(new AccountModel()));
+    // }
 
     [Fact]
     public void Add_Account_To_Database()
     {
-      var dummy_account = BuildAccountModel();
+      var sut = new UnitOfWork(_db);
+      var TestEntityAccount = new AccountModel(){ AccountModelID = "1"};
       var options = new DbContextOptionsBuilder<AccountDbContext>() 
-          .UseInMemoryDatabase(databaseName: "AccountDB_Test")
+          .UseInMemoryDatabase(databaseName: "Add_Account_to_database")
           .Options;
 
       // Run the test against one instance of the context
       var context = new AccountDbContext(options);
       var unWork = new UnitOfWork(context);
       var AccountModelRepo = unWork.AccountModelRepository;
-      AccountModelRepo.Insert(dummy_account);
+      AccountModelRepo.Insert(TestEntityAccount);
       unWork.Commit();
 
-    //   // Use a separate instance of the context to verify correct data was saved to database
-    //   using(var context2 = new AccountDbContext(options))
-    //   {
-    //     Assert.Equal(1, context2.Name.Count());
-    //     Assert.Equal(TestEntityName, context.Name.Single());
-    //   }
+      // Use a separate instance of the context to verify correct data was saved to database
+      using(var context2 = new AccountDbContext(options))
+      {
+        Assert.Equal(TestEntityAccount, context.Account.Single());
+      }
     }
   }
 }

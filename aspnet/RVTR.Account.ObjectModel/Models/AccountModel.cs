@@ -12,7 +12,6 @@ namespace RVTR.Account.ObjectModel.Models
   
   public class AccountModel : Model
   {
-    [Key]
     public string AccountModelID { get; set; }
     // { get => AccountModelID ; set{
     //   AccountModelID = Hash.hash(value);

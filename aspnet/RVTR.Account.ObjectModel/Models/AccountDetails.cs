@@ -10,7 +10,6 @@ namespace RVTR.Account.ObjectModel.Models
   /// </summary>
   public class AccountDetails : Model
   {
-    [Key]
     public string AccountDetailsID { get; set; }
     // { get => AccountDetailsID ; set{
     //   AccountDetailsID = Hash.hash(value);
@@ -21,8 +20,7 @@ namespace RVTR.Account.ObjectModel.Models
     public AccountRewards AccountRewards { get; set; }
 
     #region NAVIGATIONAL PROPERTIES
-    [ForeignKey("AccountID")]
-    public virtual AccountModel AccountModel { get; set; }
+    public AccountModel AccountModel { get; set; }
     
     // public string AccountID { get; set; }
 

@@ -9,7 +9,6 @@ namespace RVTR.Account.ObjectModel.Models{
   /// </summary>
   public class Address : Model
   {
-    [Key]
     public string AddressID { get; set; }
     // { get => AddressID ; set{
     //   AddressID = Hash.hash(value);
@@ -34,9 +33,8 @@ namespace RVTR.Account.ObjectModel.Models{
     public string Country { get; set; }
 
     #region NAVIGATIONAL PROPERTIES
-    
-    [ForeignKey("ProfileID")]
-    public virtual Profile Profile { get; set; }
+    public string ProfileID { get; set; }
+    public Profile Profile { get; set; }
 
     #endregion
 

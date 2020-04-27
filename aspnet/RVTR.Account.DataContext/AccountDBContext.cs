@@ -39,16 +39,14 @@ namespace RVTR.Account.DataContext
             
 
       // Define entity relationships
-      builder.Entity<AccountModel>().HasMany(x => x.Profiles).WithOne(x => x.AccountModel);
-      // builder.Entity<AccountModel>().HasOne(x => x.AccountDetails).WithOne(x => x.AccountModel).HasForeignKey<AccountModel>(x => x.AccountID);
       builder.Entity<AccountDetails>().HasOne(x => x.AccountModel).WithOne(x => x.AccountDetails).HasForeignKey<AccountModel>(x => x.AccountModelID);
-      // builder.Entity<AccountDetails>().HasOne(x => x.AccountRewards).WithOne(x => x.AccountDetails); //HasForeignKey<AccountDetails>(x =>x.AccountDetailsID); 
       builder.Entity<AccountRewards>().HasOne(x => x.AccountDetails).WithOne(x => x.AccountRewards).HasForeignKey<AccountDetails>(x =>x.AccountDetailsID); 
-      builder.Entity<Name>().HasOne(x => x.Profile).WithOne(x => x.Name).HasForeignKey<Profile>(x => x.ProfileID);
-      builder.Entity<Address>().HasOne(x => x.Profile).WithOne(x => x.Address).HasForeignKey<Profile>(x => x.ProfileID);
-      builder.Entity<Payment>().HasOne(x => x.Profile).WithOne(x => x.Payment).HasForeignKey<Profile>(x => x.ProfileID);
-      builder.Entity<ContactInformation>().HasOne(x => x.Profile).WithOne(x => x.ContactInformation).HasForeignKey<Profile>(x => x.ProfileID);
-      builder.Entity<EmergencyInformation>().HasOne(x => x.Profile).WithOne(x => x.EmergencyInformation).HasForeignKey<Profile>(x => x.ProfileID);
+      builder.Entity<AccountModel>().HasMany(x => x.Profiles).WithOne(x => x.AccountModel);
+      builder.Entity<Name>().HasOne(x => x.Profile).WithOne(x => x.Name);
+      builder.Entity<Address>().HasOne(x => x.Profile).WithOne(x => x.Address);
+      builder.Entity<Payment>().HasOne(x => x.Profile).WithOne(x => x.Payment);
+      builder.Entity<ContactInformation>().HasOne(x => x.Profile).WithOne(x => x.ContactInformation);
+      builder.Entity<EmergencyInformation>().HasOne(x => x.Profile).WithOne(x => x.EmergencyInformation);
     }
     
     // Input dummy data

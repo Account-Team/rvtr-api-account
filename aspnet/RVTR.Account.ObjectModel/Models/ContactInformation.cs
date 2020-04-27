@@ -10,7 +10,6 @@ namespace RVTR.Account.ObjectModel.Models
   /// </summary>
   public class ContactInformation : Model
   {
-    [Key]
     public string ContactInformationID { get; set; }
     // { get => ContactInformationID ; set{
     //   ContactInformationID = Hash.hash(value);
@@ -28,9 +27,8 @@ namespace RVTR.Account.ObjectModel.Models
 
 
     #region NAVIGATIONAL PROPERTIES
-    
-    [ForeignKey("ProfileID")]
-    public virtual Profile Profile { get; set; }
+    public string ProfileID { get; set; }
+    public Profile Profile { get; set; }
 
     #endregion
 

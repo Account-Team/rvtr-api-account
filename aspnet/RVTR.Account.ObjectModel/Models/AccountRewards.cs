@@ -11,7 +11,6 @@ namespace RVTR.Account.ObjectModel.Models
   /// </summary>
   public class AccountRewards : Model
   {
-    [Key]
     public string AccountRewardsID { get; set; }
     // { get => AccountRewardsID ; set{
     //   AccountRewardsID = Hash.hash(value);
@@ -20,8 +19,7 @@ namespace RVTR.Account.ObjectModel.Models
     public int RewardsPoints { get; set; }
 
     #region NAVIGATIONAL PROPERTIES
-    [ForeignKey("AccountDetailsID")]
-    public virtual AccountDetails AccountDetails { get; set; }
+    public AccountDetails AccountDetails { get; set; }
 
     #endregion
     

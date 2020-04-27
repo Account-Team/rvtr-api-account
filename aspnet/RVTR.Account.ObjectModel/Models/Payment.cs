@@ -12,9 +12,10 @@ namespace RVTR.Account.ObjectModel.Models
   public class Payment : Model
   {
     [Key]
-    public string PaymentID { get => PaymentID ; set{
-      PaymentID = Hash.hash(value);
-    } } 
+    public string PaymentID { get; set; }
+    // { get => PaymentID ; set{
+    //   PaymentID = Hash.hash(value);
+    // } } 
     [Display(Name = "Cardholder's name")]
     [Required(ErrorMessage = "Cardholder's name is required.")]
     public string CardholderName { get; set; }

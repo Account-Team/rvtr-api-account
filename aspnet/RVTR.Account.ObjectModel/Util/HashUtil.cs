@@ -11,7 +11,7 @@ namespace RVTR.Account.ObjectModel.Util
    
    public static string hash(string arguments) // default hash is 16 bytes
    {
-     return Encoding.Default.GetString(sha1_state.ComputeHash(Encoding.ASCII.GetBytes("hello "+arguments))).Substring(0,16);
+     return Encoding.Default.GetString(sha1_state.ComputeHash(Encoding.ASCII.GetBytes("hello "+arguments))).Substring(0,8);
    }
    public static string hash(string arguments, int length)
    {

@@ -13,6 +13,9 @@ using Microsoft.Extensions.Logging;
 using RVTR.Account.DataContext.Repositories;
 using RVTR.Account.DataContext;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.IO;
 
 namespace RVTR.Account.WebApi
 {
@@ -31,15 +34,12 @@ namespace RVTR.Account.WebApi
 
       services.AddControllers();
 
-      services.AddCors(cors =>
+      services.AddSwaggerGen(c =>
       {
-        cors.DefaultPolicyName = "default";
-
-        cors.AddDefaultPolicy(policy =>
-        {
-          policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
-        });
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
       });
+
+      services.AddCors(o => o.AddDefaultPolicy(p => p.AllowAnyOrigin().AllowAnyMethod()));
 
       services.AddScoped<IUnitOfWork, UnitOfWork>();
     }
@@ -50,9 +50,19 @@ namespace RVTR.Account.WebApi
       {
         app.UseDeveloperExceptionPage();
       }
-
       app.UseHttpsRedirection();
+
       app.UseRouting();
+
+      app.UseCors();
+
+      app.UseSwagger();
+
+      app.UseSwaggerUI(c => 
+      {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+      });
+      
       app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>

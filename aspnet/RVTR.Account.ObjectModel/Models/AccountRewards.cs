@@ -12,9 +12,10 @@ namespace RVTR.Account.ObjectModel.Models
   public class AccountRewards : Model
   {
     [Key]
-    public string AccountRewardsID { get => AccountRewardsID ; set{
-      AccountRewardsID = Hash.hash(value);
-    } } 
+    public string AccountRewardsID { get; set; }
+    // { get => AccountRewardsID ; set{
+    //   AccountRewardsID = Hash.hash(value);
+    // } } 
     public string RewardsStatus { get; set; }
     public int RewardsPoints { get; set; }
 

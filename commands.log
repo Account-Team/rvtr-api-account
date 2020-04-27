@@ -1,0 +1,473 @@
+   40  git checkout 172282283-datamodel
+   41  git push
+   42  git push upstream/master
+   43  git push origin
+   44  git branch
+   45  touch hero.service.spec.js
+   46  cat hero.service.spec.js > hero.service.spec.ts
+   47  rm hero.service.spec.js 
+   48  ng test
+   49  npm i
+   50  npm i -g npm
+   51  ng test
+   52  ng test
+   53  git branch
+   54  git checkout 172282283-datamodel 
+   55  npm i
+   56  t
+   57  cd angular/
+   58  npm i
+   59  ng test
+   60  ng test
+   61  ng test
+   62  ng test
+   63  ng test
+   64  git add .
+   65  git commit
+   66  git push origin
+   67  ng test
+   68  ng test
+   69  ng test
+   70  ng test
+   71  git add .
+   72  git commit
+   73  git push origin
+   74  git push origin
+   75  ng test
+   76  ng test
+   77  ng test
+   78  git add .
+   79  git commit 
+   80  git push origin
+   81  ng test
+   82  ng test
+   83  ng test
+   84  ng test
+   85  git add .
+   86  git commit
+   87  git push origin
+   88  ng test
+   89  ng test
+   90  ng test
+   91  ng test
+   92  ng test
+   93  ng test
+   94  ng test
+   95  ng test
+   96  ng test
+   97  ng test
+   98  ng test
+   99  ng test
+  100  ng test
+  101  ng test
+  102  ng test
+  103  ng test
+  104  ng test
+  105  ng test
+  106  ng test
+  107  ng test
+  108  ng test
+  109  ng test
+  110  ng test
+  111  ng test
+  112  ng test
+  113  ng test
+  114  ng test
+  115  ng test
+  116  ng test
+  117  ng test
+  118  git add .
+  119  git commit
+  120  git push origin
+  121  ng test
+  122  ng test
+  123  ng test
+  124  ng test
+  125  ng test
+  126  ng test
+  127  ng test
+  128  ng test
+  129  git add .
+  130  git commit
+  131  git branch
+  132  git commit
+  133  git push origin
+  134  cd /private/var/folders/qz/qz++vTvmFW8AYmSeZseUQU+++TM/-Tmp-/
+  135  cd /private/var/folders/qz/
+  136  cd /private/var/folders/
+  137  t
+  138  t2
+  139  cd zz
+  140  t
+  141  ls -all
+  142  cd ~
+  143  git pull
+  144  git rebase upstream/master
+  145  t
+  146  cat commands.md 
+  147  git branch
+  148  cd ~/Downloads/
+  149  cd NeatTicTacToe/
+  150  t
+  151  tree | grep sln
+  152  t3
+  153  l
+  154  dotnet run
+  155  cat **/*.sln
+  156  cat NeatTicTacToe.sln 
+  157  t
+  158  cd NeatTicTacToe
+  159  dotnet run
+  160  cd ../lib/
+  161  t
+  162  t
+  163  cd aspnet/
+  164  t
+  165  cd RVTR.Account.DataContext/
+  166  t
+  167  touch AccountDBContext.cs
+  168  cd ..
+  169  t2
+  170  tree | grep repositor
+  171  cd -
+  172  t
+  173  cd ..
+  174  t
+  175  cd RVTR.Account.ObjectModel/
+  176  l
+  177  t
+  178  touch -p ./Models/AccountModel.cs
+  179  touch  ./Models/AccountModel.cs
+  180  mkdir Models
+  181  touch  ./Models/AccountModel.cs
+  182  cd Models/
+  183  touch Profile.cs
+  184  touch Name.cs
+  185  touch ContactInformation.cs
+  186  touch Address.cs
+  187  touch Payment.cs
+  188  touch Health.cs
+  189  touch EmergerncyContact.cs
+  190  touch AccountDetails.cs
+  191  touch Rewards.cs
+  192  git add .
+  193  git commit
+  194  git push origin
+  195  echo 'namespace RVTR.Account.ObjectModel.Models;'
+  196  echo 'namespace RVTR.Account.ObjectModel.Models;' | tee -a ./*
+  197  cat *
+  198  git add .
+  199  cd ..
+  200  mkdir Interfaces
+  201  cd Interfaces/
+  202  touch IHash.cs
+  203  cd ..
+  204  mkdir Abstracts.cs
+  205  mv Abstracts.cs/ Abstracts
+  206  cd Abstracts/
+  207  touch AHash.cs
+  208  cd ..
+  209  mkdir Util
+  210  cp Abstracts/AHash.cs Util/
+  211  cd Util/
+  212  mv AHash.cs HashUtil.cs
+  213  cat *
+  214  cd ..
+  215  dotnet build
+  216  git add .
+  217  git branch
+  218  git commit
+  219  cd ../..
+  220  git add .
+  221  git commit
+  222  git push
+  223  git branch
+  224  ls
+  225  dotnet add aspnet/RVTR.Account.ObjectModel/RVTR.Account.ObjectModel.csproj  package system.componentmodel.annotations
+  226  cd -
+  227  grep -inrEI emergencyinformation
+  228  grep -inrEI emergencyinformation .
+  229  dotnet build
+  230  ls
+  231  cd ../..
+  232  git add .
+  233  git commit
+  234  git push
+  235  ls
+  236  dotnet add aspnet/RVTR.Account.UnitTesting/RVTR.Account.UnitTesting.csproj  reference aspnet/RVTR.Account.ObjectModel/RVTR.Account.ObjectModel.csproj 
+  237  cd -
+  238  t
+  239  mkdir Validation
+  240  cd Validation/
+  241  touch ValidateDateOfBirth.cs
+  242  cd ../../..
+  243  t
+  244  cd aspnet/p
+  245  cd aspnet/
+  246  l
+  247  cd RVTR.Account.UnitTesting/
+  248  dotnet run
+  249  dotnet test
+  250  dotnet test
+  251  dotnet test
+  252  dotnet test
+  253  dotnet test
+  254  dotnet test
+  255  cd -
+  256  cp ../../rvtr-app-campsite/commands.md .
+  257  cat commands.md 
+  258  git rebase origin/master
+  259  cd ..
+  260  git add .
+  261  git commit
+  262  git push origin
+  263  git rebase origin/master
+  264  git fetch origin/master
+  265  git fetch upstream/master
+  266  git pull upstream
+  267  git pull upstream/master
+  268  git pull
+  269  git pull origin
+  270  git fetch origin
+  271  git branch
+  272  git checkout 172281055-aspnet
+  273  git branch
+  274  git stash
+  275  git rebase --abort
+  276  git branch
+  277  scho 'HERE'
+  278  git fetch origin
+  279  git branch
+  280  git rebase origin/172281055-aspnet
+  281  git remote
+  282  git fetch upstream
+  283  git rebase upstream/master
+  284  git add .
+  285  git rebase --continue
+  286  git add .
+  287  git status
+  288  git rebase --continue
+  289  git status
+  290  git branch -r
+  291  git push
+  292  git push -u upstream 172281055-aspnet
+  293  git rebase upstream/master
+  294  git commit
+  295  git add .
+  296  git commit
+  297  git push
+  298  git rebase upstream/master
+  299  git push -f
+  300  git branch
+  301  t
+  302  cd aspnet/
+  303  t
+  304  cd RVTR.Account.DataContext/
+  305  dotnet add package EntityFramework --version 6.4.0
+  306  dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+  307  dotnet add package Microsoft.EntityFrameworkCore.Design
+  308  dotnet add package Microsoft.EntityFrameworkCore.InMemory
+  309  t
+  310  cd ../../..
+  311  cd -
+  312  cd ../..
+  313  git add .
+  314  git commit
+  315  git push origin
+  316  git branch
+  317  git checkout -b 172469609-accountcontext -t https://github.com/RVTR/rvtr-api-account
+  318  git checkout -b 172469609-accountcontext -t https://github.com/RVTR/rvtr-api-account.git
+  319  t
+  320  git checkout -b 172469609-accountcontext -t https://github.com/RVTR/rvtr-api-account.git
+  321  git add .
+  322  git commit -m "brancinching"
+  323  git push origin
+  324  git checkout -b 172469609-accountcontext -t https://github.com/RVTR/rvtr-api-account.git
+  325  git checkout master
+  326  git checkout -b 172469609-accountcontext -t https://github.com/RVTR/rvtr-api-account.git
+  327  git branch
+  328  git checkout 172281055-aspnet
+  329  git fetch --all
+  330  git checkout -b 172469609-accountcontext -t https://github.com/RVTR/rvtr-api-account.git
+  331  git checkout -b 172469609-accountcontext -t upstream/master
+  332  git status
+  333  git branch
+  334  dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+  335  git branch
+  336  gti fetch origin/172281055-aspnet
+  337  git fetch origin/172281055-aspnet
+  338  git fetch origin
+  339  git pull origin
+  340  git pull origin/172281055-aspnet
+  341  git branch
+  342  git checkout master
+  343  git merge 172281055-aspnet
+  344  git branch
+  345  git rebase 172281055-aspnet
+  346  git checkout 172281055-aspnet
+  347  git rebase --abort
+  348  git mergge --abort
+  349  git merge --abort
+  350  git branch
+  351  git checkout 172281055-aspnet
+  352  git restore .
+  353  git checkout 172281055-aspnet
+  354  git status
+  355  git checkout 172281055-aspnet
+  356  l
+  357  git branch
+  358  git checkout master
+  359  git checkout 172281055-aspnet
+  360  git checkout master
+  361  git rebase 172281055-aspnet
+  362  git checkout 172469609-accountcontext
+  363  git rebase origin/master
+  364  git checkout master
+  365  git checkout 172469609-accountcontext
+  366  git rebase master
+  367  git add .
+  368  git commit
+  369  git push
+  370  git checkout master
+  371  git add .
+  372  git commit
+  373  git push origin/master
+  374  git push origin
+  375  git add .
+  376  git commit
+  377  git checkout 172469609-accountcontext
+  378  git add .
+  379  git commit
+  380  git push origin
+  381  history | grep memory
+  382  t
+  383  cd aspnet/RVTR.Account.WebApi/
+  384  dotnet add package Microsoft.EntityFrameworkCore.InMemory
+  385  dotnet add RVTR.Account.WebApi.csproj reference ../RVTR.Account.DataContext/RVTR.Account.DataContext.csproj 
+  386  cd ../RVTR.Account.ObjectModel/
+  387  cd Models/
+  388  vim temp
+  389  cat temp | tee -a ./*
+  390  rm temp 
+  391  cd -
+  392  cd ../RVTR.Account.DataContext/
+  393  dotnet build
+  394  dotnet build
+  395  cd -
+  396  cat Models/AccountModel.cs > Abstracts/Model.cs
+  397  cd -
+  398  dotnet build
+  399  dotnet build
+  400  dotnet build
+  401  cd ../RVTR.Account.UnitTesting/
+  402  t
+  403  t2
+  404  cd ../RVTR.Account.WebApi/
+  405  dotnet build
+  406  dotnet build
+  407  cd -
+  408  dotnet test
+  409  cd ../..
+  410  git add .
+  411  git commit
+  412  git puish origin
+  413  git push origin
+  414  git add .
+  415  git commit
+  416  git push origin
+  417  cd aspnet/RVTR.Account.UnitTesting/
+  418  dotnet run test
+  419  dotnet test
+  420  dotnet test
+  421  dotnet test
+  422  dotnet test
+  423  dotnet test
+  424  dotnet test
+  425  dotnet test
+  426  dotnet test
+  427  dotnet test
+  428  dotnet test
+  429  dotnet test
+  430  dotnet test
+  431  dotnet test
+  432  dotnet test
+  433  dotnet test
+  434  dotnet test
+  435  dotnet test
+  436  dotnet test
+  437  dotnet test
+  438  dotnet test
+  439  dotnet test
+  440  dotnet test
+  441  cd -
+  442  git add .
+  443  git commit -m "testing again"
+  444  git push origin
+  445  dotnet test
+  446  cd -
+  447  dotnet test
+  448  cd ../RVTR.Account.ObjectModel/
+  449  grep -inrEI foreign .
+  450  cd -
+  451  dotnet test
+  452  dotnet test
+  453  dotnet test
+  454  dotnet test
+  455  dotnet test
+  456  dotnet test
+  457  dotnet test
+  458  dotnet test
+  459  dotnet test
+  460  dotnet test
+  461  dotnet test
+  462  dotnet test
+  463  dotnet test
+  464  dotnet test
+  465  dotnet test
+  466  dotnet test
+  467  dotnet test
+  468  dotnet test
+  469  dotnet test
+  470  dotnet test
+  471  dotnet test
+  472  git add .
+  473  git commit
+  474  git push origin
+  475  dotnet test
+  476  dotnet test
+  477  dotnet test
+  478  dotnet test
+  479  dotnet test
+  480  dotnet test
+  481  dotnet test
+  482  dotnet test
+  483  dotnet test
+  484  dotnet test
+  485  git add .
+  486  git commit
+  487  git push origin
+  488  git pull origin
+  489  git branch
+  490  git pull
+  491  cd -
+  492  cd -
+  493  cd ../..
+  494  git add .
+  495  git commit
+  496  git push origin
+  497  git pull
+  498  cd aspnet/RVTR.Account.ObjectModel/
+  499  fotnet build
+  500  dotnet build
+  501  cd Desktop/rvtr-api-account/
+  502  git branch
+  503  cd ..
+  504  rm -rf rvtr-api-account/
+  505  git clone https://github.com/Account-Team/rvtr-api-account.git
+  506  cd rvtr-ap
+  507  cd rvtr-api
+  508  cd rvtr-api-account/
+  509  code .
+  510  hitstory | grep here
+  511  history | grep here
+  512  history > commands.log

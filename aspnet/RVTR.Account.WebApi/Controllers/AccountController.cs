@@ -25,7 +25,7 @@ namespace RVTR.Account.WebApi.Controllers
     private readonly ILogger<AccountController> _logger;
     private readonly IUnitOfWork _unitOfWork;
 
-    public AccountController(ILogger<AccountController> logger, UnitOfWork unitOfWork)
+    public AccountController(ILogger<AccountController> logger, IUnitOfWork unitOfWork)
     {
       _logger = logger;
       _unitOfWork = unitOfWork;

@@ -7,15 +7,15 @@ namespace RVTR.Account.DataContext.Repositories
   {
     
     private readonly AccountDbContext _db;
-    public Repository<AccountModel> AccountModelRepository { get; set; }
-    public Repository<AccountDetails> AccountDetailsRepository { get; set; }
-    public Repository<AccountRewards> AccountRewardsRepository { get; set; }
-    public Repository<Address> AddressRepository { get; set; }
-    public Repository<ContactInformation> ContactInformationRepository { get; set; }
-    public Repository<EmergencyInformation> EmergencyInformationRepository { get; set; }
-    public Repository<Name> NameRepository { get; set; }
-    public Repository<Payment> PaymentRepository { get; set; }
-    public Repository<Profile> ProfileRepository { get; set; }
+    public IRepository<AccountModel> AccountModelRepository { get; set; }
+    public IRepository<AccountDetails> AccountDetailsRepository { get; set; }
+    public IRepository<AccountRewards> AccountRewardsRepository { get; set; }
+    public IRepository<Address> AddressRepository { get; set; }
+    public IRepository<ContactInformation> ContactInformationRepository { get; set; }
+    public IRepository<EmergencyInformation> EmergencyInformationRepository { get; set; }
+    public IRepository<Name> NameRepository { get; set; }
+    public IRepository<Payment> PaymentRepository { get; set; }
+    public IRepository<Profile> ProfileRepository { get; set; }
     public void Dispose()
     {
       _db.Dispose();

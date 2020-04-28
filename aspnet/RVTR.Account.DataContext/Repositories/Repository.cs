@@ -47,7 +47,7 @@ namespace RVTR.Account.DataContext.Repositories
       }
     }
 
-    public IEnumerable<TEntity> Select() => (IEnumerable<TEntity>)_db.Set<TEntity>().ToListAsync(); // Return All Records
+    public IEnumerable<TEntity> Select() => (IEnumerable<TEntity>)_db.Set<TEntity>();//.ToListAsync(); // Return All Records
 
     public TEntity Select(int id)
     {

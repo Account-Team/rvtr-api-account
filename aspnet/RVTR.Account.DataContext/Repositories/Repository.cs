@@ -14,15 +14,27 @@ namespace RVTR.Account.DataContext.Repositories
     {
       _db = db;
     }
-    public bool Delete(int id)
+
+    // Class Methods
+
+    public IEnumerable<TEntity> Select()  // Return All Records
     {
-      var entity = this.Select(id);
+      return (IEnumerable<TEntity>)_db.Set<TEntity>();
+    }
+
+    public TEntity Select(int id)
+    {
+      return _db.Set<TEntity>().Find(id); // id is the PK on the table
+    }
+
+    public bool Update(TEntity entity)
+    {
       var context = new ValidationContext(entity, null, null);
       var results = new List<ValidationResult>();
-
+      
       if (Validator.TryValidateObject(entity, context, results, true))
       {
-        _db.Set<TEntity>().Remove(entity);
+        _db.Set<TEntity>().Update(entity);
         return true;
       }
       else
@@ -30,8 +42,7 @@ namespace RVTR.Account.DataContext.Repositories
         return false;
       }
     }
-
-    public bool Insert(TEntity entity)
+     public bool Insert(TEntity entity)
     {
       var context = new ValidationContext(entity, null, null);
       var results = new List<ValidationResult>();
@@ -47,21 +58,15 @@ namespace RVTR.Account.DataContext.Repositories
       }
     }
 
-    public IEnumerable<TEntity> Select() => (IEnumerable<TEntity>)_db.Set<TEntity>();//.ToListAsync(); // Return All Records
-
-    public TEntity Select(int id)
+    public bool Delete(int id)
     {
-      return _db.Set<TEntity>().Find(id); // id is the PK on the table
-    }
-
-    public bool Update(TEntity entity)
-    {
+      var entity = this.Select(id);
       var context = new ValidationContext(entity, null, null);
       var results = new List<ValidationResult>();
-      
+
       if (Validator.TryValidateObject(entity, context, results, true))
       {
-        _db.Set<TEntity>().Update(entity);
+        _db.Set<TEntity>().Remove(entity);
         return true;
       }
       else

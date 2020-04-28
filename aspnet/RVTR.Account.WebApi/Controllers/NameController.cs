@@ -18,12 +18,10 @@ namespace RVTR.Account.WebApi.Controllers
   public class NameController : ControllerBase
   {
     private readonly HttpClient _http = new HttpClient();
-
-    AccountDbContext dbContext;
-    private static readonly UnitOfWork system; // DBMS hooks
-    
+    AccountDbContext dbContext;    
     private readonly ILogger<NameController> _logger;
     private readonly IUnitOfWork _unitOfWork;
+    private Repository<Name> NameRepository;
 
     public NameController(ILogger<NameController> logger, IUnitOfWork unitOfWork)
     {
@@ -31,15 +29,40 @@ namespace RVTR.Account.WebApi.Controllers
       _unitOfWork = unitOfWork;
     }
 
+    /// <summary>
+    /// HTTP 'Get' method for AccountModel service
+    /// </summary>
+    /// <returns>List of all AccountModel objects</returns>
     [HttpGet]
-    public async Task<Name> Get()
+    public async Task<IEnumerable<Name>> Get()
     {
-      return await Task.FromResult<Name>(new Name());
+      return await Task.FromResult<IEnumerable<Name>>(_unitOfWork.NameRepository.Select());
     }
-    [HttpPost]
-    public async Task<Name> Post(Name account) 
+    /// <summary>
+    /// HTTP 'Get' method for AccountModel lookup
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns>AccountModel object/returns>
+    [HttpGet("{id}")]
+    public async Task<Name> Get(int id)
     {
-      return await Task.FromResult<Name>(account);
+      return await Task.FromResult<Name>(_unitOfWork.NameRepository.Select(id));
+    }
+
+    /// <summary>
+    /// HTTP 'Post' method for AccountModel service
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns>Returns an action result describing the post action</returns>
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody]Name model)
+    {
+      var success = await Task.FromResult<bool>(_unitOfWork.NameRepository.Insert(model));
+      if (success)
+      {
+        return Ok();
+      }
+      return BadRequest();
     }
   }
 }

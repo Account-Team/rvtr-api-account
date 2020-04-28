@@ -18,12 +18,10 @@ namespace RVTR.Account.WebApi.Controllers
   public class AccountDetailsController : ControllerBase
   {
     private readonly HttpClient _http = new HttpClient();
-
-    AccountDbContext dbContext;
-    private static readonly UnitOfWork system; // DBMS hooks
-    
+    AccountDbContext dbContext;    
     private readonly ILogger<AccountDetailsController> _logger;
     private readonly IUnitOfWork _unitOfWork;
+    private Repository<AccountDetails> AccountDetailsRepository;
 
     public AccountDetailsController(ILogger<AccountDetailsController> logger, IUnitOfWork unitOfWork)
     {
@@ -31,16 +29,40 @@ namespace RVTR.Account.WebApi.Controllers
       _unitOfWork = unitOfWork;
     }
 
+    /// <summary>
+    /// HTTP 'Get' method for AccountModel service
+    /// </summary>
+    /// <returns>List of all AccountModel objects</returns>
     [HttpGet]
-    public async Task<AccountDetails> Get()
+    public async Task<IEnumerable<AccountDetails>> Get()
     {
-      return await Task.FromResult<AccountDetails>(new AccountDetails());
+      return await Task.FromResult<IEnumerable<AccountDetails>>(_unitOfWork.AccountDetailsRepository.Select());
     }
-    [HttpPost]
-    public async Task<AccountDetails> Post(AccountDetails account) // TODO: Change to async task.await
+    /// <summary>
+    /// HTTP 'Get' method for AccountModel lookup
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns>AccountModel object/returns>
+    [HttpGet("{id}")]
+    public async Task<AccountDetails> Get(int id)
     {
-      // return await Task.FromResult<AccountModel>(new AccountModel());
-      return await Task.FromResult<AccountDetails>(account);
+      return await Task.FromResult<AccountDetails>(_unitOfWork.AccountDetailsRepository.Select(id));
+    }
+
+    /// <summary>
+    /// HTTP 'Post' method for AccountModel service
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns>Returns an action result describing the post action</returns>
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody]AccountDetails model)
+    {
+      var success = await Task.FromResult<bool>(_unitOfWork.AccountDetailsRepository.Insert(model));
+      if (success)
+      {
+        return Ok();
+      }
+      return BadRequest();
     }
   }
 }

@@ -34,9 +34,9 @@ namespace RVTR.Account.WebApi.Controllers
     /// </summary>
     /// <returns>List of all AccountModel objects</returns>
     [HttpGet]
-    public async Task<IEnumerable<Address>> Get()
+    public async Task<IEnumerable<AddressModel>> Get()
     {
-      return await Task.FromResult<IEnumerable<Address>>(_unitOfWork.AddressRepository.Select());
+      return await Task.FromResult<IEnumerable<AddressModel>>(_unitOfWork.AddressRepository.Select());
     }
     /// <summary>
     /// HTTP 'Get' method for AccountModel lookup
@@ -44,9 +44,9 @@ namespace RVTR.Account.WebApi.Controllers
     /// <param name="id"></param>
     /// <returns>AccountModel object/returns>
     [HttpGet("{id}")]
-    public async Task<Address> Get(int id)
+    public async Task<AddressModel> Get(int id)
     {
-      return await Task.FromResult<Address>(_unitOfWork.AddressRepository.Select(id));
+      return await Task.FromResult<AddressModel>(_unitOfWork.AddressRepository.Select(id));
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace RVTR.Account.WebApi.Controllers
     /// <param name="model"></param>
     /// <returns>Returns an action result describing the post action</returns>
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody]Address model)
+    public async Task<IActionResult> Post([FromBody]AddressModel model)
     {
       var success = await Task.FromResult<bool>(_unitOfWork.AddressRepository.Insert(model));
       if (success)

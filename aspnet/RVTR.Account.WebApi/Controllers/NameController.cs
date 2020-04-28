@@ -21,7 +21,7 @@ namespace RVTR.Account.WebApi.Controllers
     AccountDbContext dbContext;    
     private readonly ILogger<NameController> _logger;
     private readonly IUnitOfWork _unitOfWork;
-    private Repository<Name> NameRepository;
+    private Repository<NameModel> NameRepository;
 
     public NameController(ILogger<NameController> logger, IUnitOfWork unitOfWork)
     {
@@ -34,9 +34,9 @@ namespace RVTR.Account.WebApi.Controllers
     /// </summary>
     /// <returns>List of all AccountModel objects</returns>
     [HttpGet]
-    public async Task<IEnumerable<Name>> Get()
+    public async Task<IEnumerable<NameModel>> Get()
     {
-      return await Task.FromResult<IEnumerable<Name>>(_unitOfWork.NameRepository.Select());
+      return await Task.FromResult<IEnumerable<NameModel>>(_unitOfWork.NameRepository.Select());
     }
     /// <summary>
     /// HTTP 'Get' method for AccountModel lookup
@@ -44,9 +44,9 @@ namespace RVTR.Account.WebApi.Controllers
     /// <param name="id"></param>
     /// <returns>AccountModel object/returns>
     [HttpGet("{id}")]
-    public async Task<Name> Get(int id)
+    public async Task<NameModel> Get(int id)
     {
-      return await Task.FromResult<Name>(_unitOfWork.NameRepository.Select(id));
+      return await Task.FromResult<NameModel>(_unitOfWork.NameRepository.Select(id));
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace RVTR.Account.WebApi.Controllers
     /// <param name="model"></param>
     /// <returns>Returns an action result describing the post action</returns>
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody]Name model)
+    public async Task<IActionResult> Post([FromBody]NameModel model)
     {
       var success = await Task.FromResult<bool>(_unitOfWork.NameRepository.Insert(model));
       if (success)

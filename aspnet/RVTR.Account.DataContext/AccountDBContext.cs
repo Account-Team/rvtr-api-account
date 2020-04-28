@@ -22,13 +22,13 @@ namespace RVTR.Account.DataContext
     
     protected override void OnModelCreating(ModelBuilder builder) 
     {
-      // Set keys
-      builder.Entity<AccountModel>().HasKey(x => x.Id);
-      builder.Entity<AddressModel>().HasKey(x => x.Id);
-      builder.Entity<NameModel>().HasKey(x => x.Id);
-      builder.Entity<PaymentModel>().HasKey(x => x.Id);
-      builder.Entity<ProfileModel>().HasKey(x => x.Id);
-      builder.Entity<BankCardModel>().HasKey(x => x.Id);            
+      // // Set keys
+      // builder.Entity<AccountModel>().HasKey(x => x.Id);
+      // builder.Entity<AddressModel>().HasKey(x => x.Id);
+      // builder.Entity<NameModel>().HasKey(x => x.Id);
+      // builder.Entity<PaymentModel>().HasKey(x => x.Id);
+      // builder.Entity<ProfileModel>().HasKey(x => x.Id);
+      // builder.Entity<BankCardModel>().HasKey(x => x.Id);            
 
     }
   }

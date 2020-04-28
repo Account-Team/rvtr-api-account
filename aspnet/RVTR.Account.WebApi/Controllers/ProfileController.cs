@@ -21,7 +21,7 @@ namespace RVTR.Account.WebApi.Controllers
     AccountDbContext dbContext;    
     private readonly ILogger<ProfileController> _logger;
     private readonly IUnitOfWork _unitOfWork;
-    private Repository<Profile> ProfileRepository;
+    private Repository<ProfileModel> ProfileRepository;
 
     public ProfileController(ILogger<ProfileController> logger, IUnitOfWork unitOfWork)
     {
@@ -34,9 +34,9 @@ namespace RVTR.Account.WebApi.Controllers
     /// </summary>
     /// <returns>List of all AccountModel objects</returns>
     [HttpGet]
-    public async Task<IEnumerable<Profile>> Get()
+    public async Task<IEnumerable<ProfileModel>> Get()
     {
-      return await Task.FromResult<IEnumerable<Profile>>(_unitOfWork.ProfileRepository.Select());
+      return await Task.FromResult<IEnumerable<ProfileModel>>(_unitOfWork.ProfileRepository.Select());
     }
     /// <summary>
     /// HTTP 'Get' method for AccountModel lookup
@@ -44,9 +44,9 @@ namespace RVTR.Account.WebApi.Controllers
     /// <param name="id"></param>
     /// <returns>AccountModel object/returns>
     [HttpGet("{id}")]
-    public async Task<Profile> Get(int id)
+    public async Task<ProfileModel> Get(int id)
     {
-      return await Task.FromResult<Profile>(_unitOfWork.ProfileRepository.Select(id));
+      return await Task.FromResult<ProfileModel>(_unitOfWork.ProfileRepository.Select(id));
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace RVTR.Account.WebApi.Controllers
     /// <param name="model"></param>
     /// <returns>Returns an action result describing the post action</returns>
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody]Profile model)
+    public async Task<IActionResult> Post([FromBody]ProfileModel model)
     {
       var success = await Task.FromResult<bool>(_unitOfWork.ProfileRepository.Insert(model));
       if (success)

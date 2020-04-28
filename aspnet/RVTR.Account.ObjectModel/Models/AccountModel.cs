@@ -8,8 +8,7 @@ namespace RVTR.Account.ObjectModel.Models
   /// </summary>
   public class AccountModel : IValidatableObject
   {
-    publi    public AddressModel Address { get; set; }
-c int Id { get; set; }
+    public int Id { get; set; }
 
     public AddressModel Address { get; set; }
 

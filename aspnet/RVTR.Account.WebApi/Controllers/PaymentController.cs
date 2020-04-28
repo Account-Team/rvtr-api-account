@@ -21,7 +21,7 @@ namespace RVTR.Account.WebApi.Controllers
     AccountDbContext dbContext;    
     private readonly ILogger<PaymentController> _logger;
     private readonly IUnitOfWork _unitOfWork;
-    private Repository<Payment> PaymentRepository;
+    private Repository<PaymentModel> PaymentRepository;
 
     public PaymentController(ILogger<PaymentController> logger, IUnitOfWork unitOfWork)
     {
@@ -34,9 +34,9 @@ namespace RVTR.Account.WebApi.Controllers
     /// </summary>
     /// <returns>List of all AccountModel objects</returns>
     [HttpGet]
-    public async Task<IEnumerable<Payment>> Get()
+    public async Task<IEnumerable<PaymentModel>> Get()
     {
-      return await Task.FromResult<IEnumerable<Payment>>(_unitOfWork.PaymentRepository.Select());
+      return await Task.FromResult<IEnumerable<PaymentModel>>(_unitOfWork.PaymentRepository.Select());
     }
     /// <summary>
     /// HTTP 'Get' method for AccountModel lookup
@@ -44,9 +44,9 @@ namespace RVTR.Account.WebApi.Controllers
     /// <param name="id"></param>
     /// <returns>AccountModel object/returns>
     [HttpGet("{id}")]
-    public async Task<Payment> Get(int id)
+    public async Task<PaymentModel> Get(int id)
     {
-      return await Task.FromResult<Payment>(_unitOfWork.PaymentRepository.Select(id));
+      return await Task.FromResult<PaymentModel>(_unitOfWork.PaymentRepository.Select(id));
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace RVTR.Account.WebApi.Controllers
     /// <param name="model"></param>
     /// <returns>Returns an action result describing the post action</returns>
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody]Payment model)
+    public async Task<IActionResult> Post([FromBody]PaymentModel model)
     {
       var success = await Task.FromResult<bool>(_unitOfWork.PaymentRepository.Insert(model));
       if (success)

@@ -1,9 +1,6 @@
-AccountDetails
-AccountModel
-AccountRewards
+Account
 Address
-ContactInformation
-EmergencyInformation
-Name
 Payment
+BankCard
 Profile
+Name

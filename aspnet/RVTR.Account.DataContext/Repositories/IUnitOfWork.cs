@@ -6,14 +6,11 @@ namespace RVTR.Account.DataContext.Repositories
   public interface IUnitOfWork
   {
     IRepository<AccountModel> AccountModelRepository { get; }
-    IRepository<AccountDetails> AccountDetailsRepository { get; }
-    IRepository<AccountRewards> AccountRewardsRepository { get; }
-    IRepository<Address> AddressRepository { get; }
-    IRepository<ContactInformation> ContactInformationRepository { get; }
-    IRepository<EmergencyInformation> EmergencyInformationRepository { get; }
-    IRepository<Name> NameRepository { get; }
-    IRepository<Payment> PaymentRepository { get; }
-    IRepository<Profile> ProfileRepository { get; }
+    IRepository<AddressModel> AddressRepository { get; }
+    IRepository<NameModel> NameRepository { get; }
+    IRepository<PaymentModel> PaymentRepository { get; }
+    IRepository<ProfileModel> ProfileRepository { get; }
+    IRepository<BankCardModel> BankCardRepository { get; }
     void Commit();
   }
 }

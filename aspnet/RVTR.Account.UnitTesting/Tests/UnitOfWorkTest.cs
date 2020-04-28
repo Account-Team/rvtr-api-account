@@ -62,7 +62,7 @@ namespace RVTR.Account.UnitTesting.Tests
     public void Add_Account_To_Database()
     {
       var sut = new UnitOfWork(_db);
-      var TestEntityAccount = new AccountModel(){ Id = 1};
+      var TestEntityAccount = new AccountModel(){ Id = 1, Name = "Name" };
       var options = new DbContextOptionsBuilder<AccountDbContext>() 
           .UseInMemoryDatabase(databaseName: "Add_Account_to_database")
           .Options;
@@ -70,15 +70,112 @@ namespace RVTR.Account.UnitTesting.Tests
       // Run the test against one instance of the context
       var context = new AccountDbContext(options);
       var unWork = new UnitOfWork(context);
-      var AccountModelRepo = unWork.AccountModelRepository;
-      AccountModelRepo.Insert(TestEntityAccount);
+      var AccountRepo = unWork.AccountModelRepository;
+      AccountRepo.Insert(TestEntityAccount);
       unWork.Commit();
 
       // Use a separate instance of the context to verify correct data was saved to database
-      using(var context2 = new AccountDbContext(options))
-      {
-        Assert.Equal(TestEntityAccount, context.Account.Single());
-      }
+      Assert.Equal(TestEntityAccount, context.Account.FirstOrDefault());
+    }
+
+    [Fact]
+    public void Add_Address_To_Database()
+    {
+      var sut = new UnitOfWork(_db);
+      var TestEntityAccount = new AddressModel(){ Id = 1, City = "City", Country = "Country", PostalCode = "Postal", StateProvince = "StateProvince", Street = "Street" };
+      var options = new DbContextOptionsBuilder<AccountDbContext>() 
+          .UseInMemoryDatabase(databaseName: "Add_Address_to_database")
+          .Options;
+
+      // Run the test against one instance of the context
+      var context = new AccountDbContext(options);
+      var unWork = new UnitOfWork(context);
+      var AccountRepo = unWork.AddressRepository;
+      AccountRepo.Insert(TestEntityAccount);
+      unWork.Commit();
+
+      // Use a separate instance of the context to verify correct data was saved to database
+      Assert.Equal(TestEntityAccount, context.Address.FirstOrDefault());
+    }
+
+    [Fact]
+    public void Add_BankCard_To_Database()
+    {
+      var sut = new UnitOfWork(_db);
+      var TestEntityAccount = new BankCardModel(){ Id = 1, Expiry = new DateTime(), Number = "372695576833849" };
+      var options = new DbContextOptionsBuilder<AccountDbContext>() 
+          .UseInMemoryDatabase(databaseName: "Add_BankCard_to_database")
+          .Options;
+
+      // Run the test against one instance of the context
+      var context = new AccountDbContext(options);
+      var unWork = new UnitOfWork(context);
+      var NameRepo = unWork.BankCardRepository;
+      NameRepo.Insert(TestEntityAccount);
+      unWork.Commit();
+
+      // Use a separate instance of the context to verify correct data was saved to database
+      Assert.Equal(TestEntityAccount, context.BankCard.FirstOrDefault());
+    }
+
+    [Fact]
+    public void Add_Name_To_Database()
+    {
+      var sut = new UnitOfWork(_db);
+      var TestEntityAccount = new NameModel(){ Family = "Newt", Given = "Gingrich", Id = 1 };
+      var options = new DbContextOptionsBuilder<AccountDbContext>() 
+          .UseInMemoryDatabase(databaseName: "Add_Name_to_database")
+          .Options;
+
+      // Run the test against one instance of the context
+      var context = new AccountDbContext(options);
+      var unWork = new UnitOfWork(context);
+      var NameRepo = unWork.NameRepository;
+      NameRepo.Insert(TestEntityAccount);
+      unWork.Commit();
+
+      // Use a separate instance of the context to verify correct data was saved to database
+      Assert.Equal(TestEntityAccount, context.Name.FirstOrDefault());
+    }
+
+    [Fact]
+    public void Add_Payment_To_Database()
+    {
+      var sut = new UnitOfWork(_db);
+      var TestEntityAccount = new PaymentModel(){ Id = 1, BankCard = new BankCardModel(), Name = "Name" };
+      var options = new DbContextOptionsBuilder<AccountDbContext>() 
+          .UseInMemoryDatabase(databaseName: "Add_Payment_to_database")
+          .Options;
+
+      // Run the test against one instance of the context
+      var context = new AccountDbContext(options);
+      var unWork = new UnitOfWork(context);
+      var NameRepo = unWork.PaymentRepository;
+      NameRepo.Insert(TestEntityAccount);
+      unWork.Commit();
+
+      // Use a separate instance of the context to verify correct data was saved to database
+      Assert.Equal(TestEntityAccount, context.Payment.FirstOrDefault());
+    }
+
+    [Fact]
+    public void Add_Profile_To_Database()
+    {
+      var sut = new UnitOfWork(_db);
+      var TestEntityAccount = new ProfileModel(){ Id = 1, Email = "User@Example.com", Name = new NameModel(), Phone = "000-000-0000"};
+      var options = new DbContextOptionsBuilder<AccountDbContext>() 
+          .UseInMemoryDatabase(databaseName: "Add_Profile_to_database")
+          .Options;
+
+      // Run the test against one instance of the context
+      var context = new AccountDbContext(options);
+      var unWork = new UnitOfWork(context);
+      var NameRepo = unWork.ProfileRepository;
+      NameRepo.Insert(TestEntityAccount);
+      unWork.Commit();
+
+      // Use a separate instance of the context to verify correct data was saved to database
+      Assert.Equal(TestEntityAccount, context.Profile.FirstOrDefault());
     }
   }
 }

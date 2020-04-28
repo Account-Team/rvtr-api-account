@@ -15,15 +15,15 @@ namespace RVTR.Account.WebApi.Controllers
   [ApiController]
   [EnableCors()]
   [Route("[controller]")]
-  public class AccountDetailsController : ControllerBase
+  public class BankCardController : ControllerBase
   {
     private readonly HttpClient _http = new HttpClient();
     AccountDbContext dbContext;    
-    private readonly ILogger<AccountDetailsController> _logger;
+    private readonly ILogger<BankCardController> _logger;
     private readonly IUnitOfWork _unitOfWork;
-    private Repository<AccountDetails> AccountDetailsRepository;
+    private Repository<BankCardModel> BankCardRepository;
 
-    public AccountDetailsController(ILogger<AccountDetailsController> logger, IUnitOfWork unitOfWork)
+    public BankCardController(ILogger<BankCardController> logger, IUnitOfWork unitOfWork)
     {
       _logger = logger;
       _unitOfWork = unitOfWork;
@@ -34,9 +34,9 @@ namespace RVTR.Account.WebApi.Controllers
     /// </summary>
     /// <returns>List of all AccountModel objects</returns>
     [HttpGet]
-    public async Task<IEnumerable<AccountDetails>> Get()
+    public async Task<IEnumerable<BankCardModel>> Get()
     {
-      return await Task.FromResult<IEnumerable<AccountDetails>>(_unitOfWork.AccountDetailsRepository.Select());
+      return await Task.FromResult<IEnumerable<BankCardModel>>(_unitOfWork.BankCardRepository.Select());
     }
     /// <summary>
     /// HTTP 'Get' method for AccountModel lookup
@@ -44,9 +44,9 @@ namespace RVTR.Account.WebApi.Controllers
     /// <param name="id"></param>
     /// <returns>AccountModel object/returns>
     [HttpGet("{id}")]
-    public async Task<AccountDetails> Get(int id)
+    public async Task<BankCardModel> Get(int id)
     {
-      return await Task.FromResult<AccountDetails>(_unitOfWork.AccountDetailsRepository.Select(id));
+      return await Task.FromResult<BankCardModel>(_unitOfWork.BankCardRepository.Select(id));
     }
 
     /// <summary>
@@ -55,9 +55,9 @@ namespace RVTR.Account.WebApi.Controllers
     /// <param name="model"></param>
     /// <returns>Returns an action result describing the post action</returns>
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody]AccountDetails model)
+    public async Task<IActionResult> Post([FromBody]BankCardModel model)
     {
-      var success = await Task.FromResult<bool>(_unitOfWork.AccountDetailsRepository.Insert(model));
+      var success = await Task.FromResult<bool>(_unitOfWork.BankCardRepository.Insert(model));
       if (success)
       {
         return Ok();

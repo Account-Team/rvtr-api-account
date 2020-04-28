@@ -18,12 +18,10 @@ namespace RVTR.Account.WebApi.Controllers
   public class ContactInformationController : ControllerBase
   {
     private readonly HttpClient _http = new HttpClient();
-
-    AccountDbContext dbContext;
-    private static readonly UnitOfWork system; // DBMS hooks
-    
+    AccountDbContext dbContext;    
     private readonly ILogger<ContactInformationController> _logger;
     private readonly IUnitOfWork _unitOfWork;
+    private Repository<ContactInformation> ContactInformationRepository;
 
     public ContactInformationController(ILogger<ContactInformationController> logger, IUnitOfWork unitOfWork)
     {
@@ -31,15 +29,40 @@ namespace RVTR.Account.WebApi.Controllers
       _unitOfWork = unitOfWork;
     }
 
+    /// <summary>
+    /// HTTP 'Get' method for AccountModel service
+    /// </summary>
+    /// <returns>List of all AccountModel objects</returns>
     [HttpGet]
-    public async Task<ContactInformation> Get()
+    public async Task<IEnumerable<ContactInformation>> Get()
     {
-      return await Task.FromResult<ContactInformation>(new ContactInformation());
+      return await Task.FromResult<IEnumerable<ContactInformation>>(_unitOfWork.ContactInformationRepository.Select());
     }
-    [HttpPost]
-    public async Task<ContactInformation> Post(ContactInformation model) 
+    /// <summary>
+    /// HTTP 'Get' method for AccountModel lookup
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns>AccountModel object/returns>
+    [HttpGet("{id}")]
+    public async Task<ContactInformation> Get(int id)
     {
-      return await Task.FromResult<ContactInformation>(model);
+      return await Task.FromResult<ContactInformation>(_unitOfWork.ContactInformationRepository.Select(id));
+    }
+
+    /// <summary>
+    /// HTTP 'Post' method for AccountModel service
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns>Returns an action result describing the post action</returns>
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody]ContactInformation model)
+    {
+      var success = await Task.FromResult<bool>(_unitOfWork.ContactInformationRepository.Insert(model));
+      if (success)
+      {
+        return Ok();
+      }
+      return BadRequest();
     }
   }
 }

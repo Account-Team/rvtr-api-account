@@ -30,7 +30,7 @@ namespace RVTR.Account.WebApi
 
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddDbContext<AccountDbContext>(options => options.UseInMemoryDatabase(databaseName: "AccountsDB"));
+      services.AddDbContext<AccountDbContext>(options => options.UseInMemoryDatabase("AccountsDB"));
 
       services.AddControllers();
 

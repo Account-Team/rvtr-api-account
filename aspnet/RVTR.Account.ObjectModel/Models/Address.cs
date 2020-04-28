@@ -33,16 +33,7 @@ namespace RVTR.Account.ObjectModel.Models{
     public string Country { get; set; }
 
     #region NAVIGATIONAL PROPERTIES
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-    [ForeignKey("ProfileID")]
-=======
     public string ProfileID { get; set; }
->>>>>>> Account Models having issues, but rest of Get requests and some Post Requests work
-=======
-    public string ProfileID { get; set; }
->>>>>>> faf7247db776ed07a3a1638bab3dae976492b12a
     public Profile Profile { get; set; }
 
     #endregion

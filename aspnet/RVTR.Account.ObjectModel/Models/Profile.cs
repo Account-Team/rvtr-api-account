@@ -25,14 +25,6 @@ namespace RVTR.Account.ObjectModel.Models
     public EmergencyInformation EmergencyInformation { get; set; }
 
     #region NAVIGATIONAL PROPERTIES
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-    [ForeignKey("AccountID")]
-=======
->>>>>>> Account Models having issues, but rest of Get requests and some Post Requests work
-=======
->>>>>>> faf7247db776ed07a3a1638bab3dae976492b12a
     public AccountModel AccountModel { get; set; }
 
     #endregion

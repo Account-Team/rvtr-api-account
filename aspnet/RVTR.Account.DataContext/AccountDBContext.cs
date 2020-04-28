@@ -27,11 +27,7 @@ namespace RVTR.Account.DataContext
     {
       // Set keys
       builder.Entity<AccountDetails>().HasKey(x => x.AccountDetailsID);
-<<<<<<< HEAD
-      builder.Entity<AccountModel>().HasKey(x => x.AccountID);
-=======
       builder.Entity<AccountModel>().HasKey(x => x.AccountModelID);
->>>>>>> faf7247db776ed07a3a1638bab3dae976492b12a
       builder.Entity<AccountRewards>().HasKey(x => x.AccountRewardsID);
       builder.Entity<Address>().HasKey(x => x.AddressID);
       builder.Entity<ContactInformation>().HasKey(x => x.ContactInformationID);
@@ -43,11 +39,7 @@ namespace RVTR.Account.DataContext
             
 
       // Define entity relationships
-<<<<<<< HEAD
-      builder.Entity<AccountDetails>().HasOne(x => x.AccountModel).WithOne(x => x.AccountDetails).HasForeignKey<AccountModel>(x => x.AccountID);
-=======
       builder.Entity<AccountDetails>().HasOne(x => x.AccountModel).WithOne(x => x.AccountDetails).HasForeignKey<AccountModel>(x => x.AccountModelID);
->>>>>>> faf7247db776ed07a3a1638bab3dae976492b12a
       builder.Entity<AccountRewards>().HasOne(x => x.AccountDetails).WithOne(x => x.AccountRewards).HasForeignKey<AccountDetails>(x =>x.AccountDetailsID); 
       builder.Entity<AccountModel>().HasMany(x => x.Profiles).WithOne(x => x.AccountModel);
       builder.Entity<Name>().HasOne(x => x.Profile).WithOne(x => x.Name);

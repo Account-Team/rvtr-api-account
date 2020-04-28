@@ -19,13 +19,6 @@ namespace RVTR.Account.ObjectModel.Models
     public int RewardsPoints { get; set; }
 
     #region NAVIGATIONAL PROPERTIES
-<<<<<<< HEAD
-<<<<<<< HEAD
-    [ForeignKey("AccountDetailsID")]
-=======
->>>>>>> Account Models having issues, but rest of Get requests and some Post Requests work
-=======
->>>>>>> faf7247db776ed07a3a1638bab3dae976492b12a
     public AccountDetails AccountDetails { get; set; }
 
     #endregion

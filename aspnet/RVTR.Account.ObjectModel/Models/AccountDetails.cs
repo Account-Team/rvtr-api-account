@@ -18,6 +18,7 @@ namespace RVTR.Account.ObjectModel.Models
     [Required(ErrorMessage = "Account type is required.")]
     public string AccountType { get; set; }
     public AccountRewards AccountRewards { get; set; }
+<<<<<<< HEAD
     
     //public string AccountRewardsID { get; set; };
 
@@ -30,6 +31,13 @@ namespace RVTR.Account.ObjectModel.Models
     
     // public string AccountID { get; set; }
 >>>>>>> Account Models having issues, but rest of Get requests and some Post Requests work
+=======
+
+    #region NAVIGATIONAL PROPERTIES
+    public AccountModel AccountModel { get; set; }
+    
+    // public string AccountID { get; set; }
+>>>>>>> faf7247db776ed07a3a1638bab3dae976492b12a
 
     #endregion
     

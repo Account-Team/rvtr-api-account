@@ -62,7 +62,7 @@ namespace RVTR.Account.UnitTesting.Tests
     public void Add_Account_To_Database()
     {
       var sut = new UnitOfWork(_db);
-      var TestEntityAccount = new AccountModel(){ AccountModelID = "1"};
+      var TestEntityAccount = new AccountModel(){ Id = 1};
       var options = new DbContextOptionsBuilder<AccountDbContext>() 
           .UseInMemoryDatabase(databaseName: "Add_Account_to_database")
           .Options;
